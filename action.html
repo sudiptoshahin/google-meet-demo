@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create or join meeting</title>
+    <link rel="stylesheet" href="public/Assets/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/public/Assets/css/materialize.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/Assets//css/styles.css">
+</head>
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <a href="#" class="navbar-brand text-dark">
+            <img class="logo" src="public/Assets/images/google-meet-icon.png" alt="">
+            <span class="icon-text">Google Meet Demo</span>
+        </a>
+
+        <div class="collapase navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">At a glance</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">How it works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Plan and price</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav display-center mr-6">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Sign in</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-primary btn-lg font-weight-bold join-meeting">
+                        Join the meeting
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary btn-lg text-light font-weight-bold new-meeting">
+                        Start a meeting
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="jumbotron h-100 d-flex">
+            <div class="container w-50">
+                <h1 style="font-size: 3rem;">
+                    Premium video meeting. Its availabe for everyone
+                </h1>
+                <p style="font-size: 20px;">
+                We're redesigning google meet service for secure business meeting and making it free for everyone to use</p>
+
+                <ul class="display-center">
+                    <li>
+                        <button class="btn btn-lg text-light font-weight-bold display-center new-meeting" style="background-color: #2196f3;">
+                            <span class="material-icons mr-2">video_call</span>
+                            New meeting
+                        </button>
+                    </li>
+
+                    <li>
+                        <button class="btn btn-lg ml-2 btn-outline-secondary text-dark font-weight-bold display-center"
+                            style="background-color: #ffffff;">
+                            <span class="material-icons mr-2">keyboard</span>
+                            <input type="text" id="meetingCode" name="meetingCode" placeholder="Enter a code" style="border: none">
+                        </button>
+                    </li>
+                    
+                    <li class="text-dark font-weight-bold cursor-pointer pl-3"> <button class="join-meeting">Join</button></li>
+                </ul>
+            </div>
+            
+            <div class="container w-50">
+                <img src="public/Assets/images/google-meet-people.jpg" class="signin-image">
+            </div>
+        </div>
+    </main>
+
+
+    <footer class="container">
+        <h6>Learn more about <span class="learn-more text-primary ml-2">google meet</span></h6>
+        
+    </footer>
+
+    <script>
+        const meetingCode = document.getElementById("meetingCode");
+        const joinMeeting = document.querySelectorAll('.join-meeting').forEach(el => el.addEventListener('click', () => {
+            meetingCode.focus();
+
+            const code = meetingCode.value;
+            const meetingUrl = window.location.origin+`?meetingId=${code}`;
+            window.location.replace(meetingUrl);
+        }));
+
+        const newMeeting = document.querySelectorAll('.new-meeting').forEach(el => el.addEventListener('click', (e) => {
+            const code = Math.floor(Math.random() * 100000000);
+            const meetingUrl = window.location.origin+`?meetingId=${code}`;
+            window.location.replace(meetingUrl);
+        }));
+
+
+    </script>
+
+</body>
+</html>

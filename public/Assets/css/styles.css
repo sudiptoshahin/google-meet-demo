@@ -104,10 +104,10 @@ textarea.focus, input:focus {
     top: -2px;
     right: -3px;
     font-size: 15px;
-}
+} 
 
 .g-bottom {
-    /* margin: 0px -10px !important; */
+    margin: 0px -10px !important;
     padding: 0 20px;
     box-shadow: 0 0 5px;
     z-index: 2;
@@ -133,4 +133,15 @@ textarea.focus, input:focus {
 .end-call-wrap {
     -ms-transform: rotate(135deg);
     transform: rotate(135deg);
+}
+
+.top-remote-video-show-wrap {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+video {
+    border: 1px solid gray;
+    width: 300px;
 }
